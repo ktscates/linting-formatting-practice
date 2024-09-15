@@ -1,1 +1,8 @@
-<p>user-list works!</p>
+<ul>
+  @for (user of users; track $index) {
+    <li>
+      <span class="user-name">{{ user.name }}</span>
+      <span class="user-age">({{ user.age }})</span>
+    </li>
+  }
+</ul>

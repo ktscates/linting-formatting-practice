@@ -1,29 +1,37 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { AppComponent } from './app.component'
 
-describe('AppComponent', () => {
+describe('UserListComponent', () => {
+  let component: AppComponent
+  let fixture: ComponentFixture<AppComponent>
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-    }).compileComponents();
-  });
+    }).compileComponents()
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    fixture = TestBed.createComponent(AppComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
-  it(`should have the 'linting-formatting-practice' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('linting-formatting-practice');
-  });
+  it('should create', () => {
+    expect(component).toBeTruthy()
+  })
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, linting-formatting-practice');
-  });
-});
+  it('should have a title "linting-formatting-practice"', () => {
+    expect(component.title).toEqual('linting-formatting-practice')
+  })
+
+  it('should log "x is 10" when ngOnInit is called', () => {
+    const consoleSpy = jest.spyOn(console, 'log')
+    component.ngOnInit()
+    expect(consoleSpy).toHaveBeenCalledWith('x is 10')
+  })
+
+  it('should log "20" when doSomething is called', () => {
+    const consoleSpy = jest.spyOn(console, 'log')
+    component.doSomething()
+    expect(consoleSpy).toHaveBeenCalledWith(20)
+  })
+})

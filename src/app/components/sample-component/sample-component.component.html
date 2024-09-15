@@ -1,0 +1,19 @@
+<h2>Sample Item List</h2>
+<ul>
+  @for (item of items; track $index) {
+    <li
+      (click)="selectItem(item)"
+      [class.selected]="item === selectedItem"
+      (keydown)="onKeydown($event, item)"
+      tabindex="0"
+      role="button"
+    >
+      {{ item }}
+    </li>
+  }
+</ul>
+@if (selectedItem) {
+  <div>
+    <p>You selected: {{ selectedItem }}</p>
+  </div>
+}
