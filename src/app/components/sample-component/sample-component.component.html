@@ -1,5 +1,5 @@
-<h2>Sample Item List</h2>
-<ul>
+<h2 class="text-5xl font-bold mb-12">Sample Item List</h2>
+<ul class="text-3xl font-semibold">
   @for (item of items; track $index) {
     <li
       (click)="selectItem(item)"
@@ -14,6 +14,8 @@
 </ul>
 @if (selectedItem) {
   <div>
-    <p>You selected: {{ selectedItem }}</p>
+    <p class="text-yellow-700 text-2xl font-semibold">
+      You selected: {{ selectedItem }}
+    </p>
   </div>
 }
